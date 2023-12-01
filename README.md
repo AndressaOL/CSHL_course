@@ -34,7 +34,7 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 - Chromosome 22 info : https://useast.ensembl.org/Homo_sapiens/Location/Chromosome?r=22 <br />
 
 ### 2.2) Processing & mapping data 
-- Chromap: *~35 sec*
+- Chromap: *~35 sec* <br />
 `chromap --preset chip -x index_chrm22 -r Homo_sapiens.GRCh38.dna.chromosome.22.fa -q 20 --min-read-length 10   -1 SRR5063143_naive_H3K27ac_PE.fastq  -o  SRR5063143_naive_H3K27ac_chromap.bed` <br />
 - Flags:
 **--preset chip**:Mapping chip reads
