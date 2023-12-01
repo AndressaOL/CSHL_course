@@ -26,7 +26,9 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 - Flags:
 **-i**: indexing genome flag 
 **-r**: reference genome
-**-o**: output name 
+**-o**: output name
+
+## **Only using the chromosome 22 human genome (only because it is one of the smallest!!)
 
 
 
