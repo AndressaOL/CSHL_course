@@ -7,8 +7,8 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 
 ## Data info:
 - **Cell Type**: Naïve cells
-- **Histone modification**: H3K4me3: Promoters & H3K27ac: Promoters and Enhancers
-- **Library info**: **1)** SE-fastq files; **2)** 3 M rads
+- **Histone modification**: H3K4me3: *Promoters* & H3K27ac: *Promoters and Enhancers*
+- **Library info**: **1)** SE-fastq files; **2)** 3 M reads
 - **Data File**: Total 6 files (2 for each histone modification & 2 input files)
 
   ##include the sample info
@@ -21,7 +21,7 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 `multiqc *.zip`
 
 ### 2) Processing data & Genome Mapping
-**Chromap** for aligning and preprocessing high throughput chromatin profiles (*ATAC-seq & ChIP-seq*); **1)** Trimm the low-quality reads and adaptors; **2)** Remove duplicated reads; **3)** Perform the mapping. https://github.com/haowenz/chromap
+**Chromap** for aligning and preprocessing high throughput chromatin profiles (*ATAC-seq & ChIP-seq*); **1)** Trimm the low-quality reads and adaptors; **2)** Remove duplicated reads; **3)** Perform the mapping. https://github.com/haowenz/chromap <br />
 
 - Build the indexed genome *(available!!)* ~ 1 min
 ` chromap -i -r genome.fa -o index`
@@ -49,7 +49,7 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 *--trim-adapters(not used)*
 
 **check files**: Output file (*BED format*) <br /> 
-`head SRR5063143_naive_H3K27ac_chromap.bed`
+`head SRR5063143_naive_H3K27ac_chromap.bed` <br />
 
  &#x1F539; chrm; start; end; N; q; strand. <br />  
   22 &nbsp; 10510250 &nbsp; 10510300 &nbsp; N &nbsp; 59 &nbsp; + <br /> 
@@ -59,15 +59,15 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
   ### 2.3) Pos-mapping data 
 *2.3.1)* Convert bed to bam *~2sec* <br /> 
 `bedtools bedtobam  -i  SRR5063143_naive_H3K27ac_chromap.bed  -g net/hawkins/vol1/home/aolima/CSHL_Course/genome/chrom22.sizes > SRR5063143_naive_H3K27ac_chromap.bam` <br /> 
-&#x1F538; *-g flag*: it is the sizes of each chromossome
+&#x1F538; *-g flag*: it is the sizes of each chromossome <br />
 
 &#x1F539; **Extra** save the size for each chromossome  <br />
 - **MUST!!** use the same version of reference genome use on the analysis <br />
-`samtools faidx genome.fa <br /> <br /> `
-`cut -f1,2 genome.fa.fai > sizes.genome <br />` 
+`samtools faidx genome.fa` <br /> <br /> 
+`cut -f1,2 genome.fa.fai > sizes.genome` <br /> 
 
 **check files**: Output file (*BAM format*) <br /> 
-`samtools view SRR5063143_naive_H3K27ac_chromap.bam | head -n 5` 
+`samtools view SRR5063143_naive_H3K27ac_chromap.bam | head -n 5` <br />
 
 *2.3.2)* Sort .**bam** & index generation **.bai** & convert to ***.bw** (*BigWig*) *xsec*  <br />
 *a.)* `samtools sort SRR5063143_naive_H3K27ac_chromap.bam  -o SRR5063143_naive_H3K27ac_treat.bam` <br />
@@ -85,10 +85,28 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 **MACS2** the Model-based Analysis of ChIP-Seq (MACS) for chormatin data analysis https://pypi.org/project/MACS2/ <br />
 &#x1F538; Useful to ChIP-seq; ATAC-seq; Cut&Tag. The parameters change depends the data type.  <br />
 
-3.1) **Samples info**:  <br />
+*3.1)* **Samples info**:  <br />
 - SRR5063143_naive_H3K27ac_treat.bam *(Performed here!!)*  <br />
 - Extra files: SRR5063144_naive_H3K27ac_treat.bam; SRR5063149_naive_H3K4me3_treat.bam; SRR5063150_naive_H3K4me3_treat.bam; SRR5063153_naive_input_treat.bam; SRR5063154_naive_input_treat.bam *(available !!)*  <br />
 - Histone modification" *H3K27ac:* broad peaks; *H3K4me3* narrow peaks. <br />   
+
+*3.2)* MACS2 *~2 min* <br />  
+
+*3.2.1)* H3K4me3 *(Narrow Peaks)*  <br />  
+`macs2 callpeak  -t  SRR5063149_naive_H3K4me3_treat.bam -c SRR5063154_naive_input_treat.bam -f BAM  -g hs   -n H3K4me3 --outdir ${your_path_directory}  2> H3K4me3_macs2.log` <br />  
+&#x1F538; *flags*: -g:*effective genome size (hs)* <br />  
+
+&#x1F538; MACS2 has effective human genome size, non-model genome uses the effective genome size <br />  
+- *hs*:2.7e9
+- *mm*:1.87e9
+- *ce*:9e7
+- *dm*:1.2e8
+
+**check files**: MACS2 generates several outputs; only check *.log and *.narrowPeaks <br />  
+To check the output narrowPeaks file uses: `wc-l` to count the number of peaks and `head` & `ls -ll` to check the output file <br /> 
+
+*3.2.2)* H3K27ac *(Broad Peaks)* <br /> 
+-macs2 callpeak  -t  SRR5063143_naive_H3K27ac_treat.bam -c SRR5063153_naive_input_treat.bam -f BAM  -g hs -n H3K27ac --broad --outdir ${your_path_directory} 2> H3K27ac_broad_macs2.log <br /> 
 
 
 
