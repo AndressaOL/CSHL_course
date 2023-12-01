@@ -10,3 +10,6 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 - Histone modification: H3K4me3: Promoters & H3K27ac: Promoters and Enhancers
 - Library info: 1) SE-fastq files; 2) 3 M reads
 - Data File: Total 6 files (2 for each histone modification & 2 input files)
+
+### Quality Control of Sequencing using FastQC/MultiQC
+- **Documentation**: *FastQC*: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/ & *MultiQC*:https://multiqc.info/
