@@ -46,8 +46,8 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 **-o**: output file
 *--trim-adapters(not used)*
 
-**check files**: Output file (*BED format*)
-` head SRR5063143_naive_H3K27ac_chromap.bed`
+**check files**: Output file (*BED format*) <br /> 
+`head SRR5063143_naive_H3K27ac_chromap.bed`
 
  &#x1F539; chrm; start; end; N; q; strand. <br />  
   22 &nbsp; 10510250 &nbsp; 10510300 &nbsp; N &nbsp; 59 &nbsp; + <br /> 
@@ -55,7 +55,7 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
   22 &nbsp; 10511600 &nbsp; 10511650 &nbsp; N &nbsp; 60 &nbsp; + <br /> 
 
   ### 2.3) Pos-mapping data 
-*2.3.1)* Convert bed to bam ~2 sec <br /> 
+*2.3.1)* Convert bed to bam *~2sec* <br /> 
 `bedtools bedtobam  -i  SRR5063143_naive_H3K27ac_chromap.bed  -g net/hawkins/vol1/home/aolima/CSHL_Course/genome/chrom22.sizes > SRR5063143_naive_H3K27ac_chromap.bam` <br /> 
 &#x1F538; *-g flag*: it is the sizes of each chromossome
 
@@ -65,6 +65,12 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 
 **check files**: Output file (*BAM format*) <br /> 
 `samtools view SRR5063143_naive_H3K27ac_chromap.bam | head -n 5` 
+
+*2.3.2)* Sorted .**bam** & index generation **.bai** & convert to ***.bw** (*BigWig*) *xsec*
+`samtools sort SRR5063143_naive_H3K27ac_chromap.bam  -o SRR5063143_naive_H3K27ac_treat.bam` <br />
+`samtools index SRR5063143_naive_H3K27ac_treat.bam` <br />
+`bamCoverage -p max -b SRR5063143_naive_H3K27ac_treat.bam  --normalizeUsing RPKM  -v  -o SRR5063143_naive_H3K27ac_norm.bw` <br />
+
 
 
   
