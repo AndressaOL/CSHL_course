@@ -60,8 +60,11 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 &#x1F538; *-g flag*: it is the sizes of each chromossome
 
 &#x1F539; **Extra**
-`samtools faidx genome.fa <br /> <br /> 
-cut -f1,2 genome.fa.fai > sizes.genome <br />` 
+`samtools faidx genome.fa <br /> <br /> `
+`cut -f1,2 genome.fa.fai > sizes.genome <br />` 
+
+**check files**: Output file (*BAM format*) <br /> 
+`samtools view SRR5063143_naive_H3K27ac_chromap.bam | head -n 5` 
 
 
   
