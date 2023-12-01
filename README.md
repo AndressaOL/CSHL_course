@@ -11,6 +11,8 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 - **Library info**: **1)** SE-fastq files; **2)** 3 M rads
 - **Data File**: Total 6 files (2 for each histone modification & 2 input files)
 
+  ##include the sample info
+
 ### 1) Quality Control of Sequencing using FastQC/MultiQC
 - **Documentation**: *FastQC*: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/ & *MultiQC*: https://multiqc.info/
 - FastQC: ~3 -4 min <br /> 
@@ -21,7 +23,7 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 ### 2) Processing data & Genome Mapping
 **Chromap** for aligning and preprocessing high throughput chromatin profiles (*ATAC-seq & ChIP-seq*); **1)** Trimm the low-quality reads and adaptors; **2)** Remove duplicated reads; **3)** Perform the mapping. https://github.com/haowenz/chromap
 
-- Build the indexed genome (available !!!) ~ 1 min
+- Build the indexed genome *(available!!)* ~ 1 min
 ` chromap -i -r genome.fa -o index`
 - Flags:
 **-i**: indexing genome flag 
@@ -81,7 +83,12 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
  
 #### 3) Peak Calling 
 **MACS2** the Model-based Analysis of ChIP-Seq (MACS) for chormatin data analysis https://pypi.org/project/MACS2/ <br />
-  
+&#x1F538; Useful to ChIP-seq; ATAC-seq; Cut&Tag. The parameters change depends the data type.  <br />
+
+3.1) **Samples info**:  <br />
+- SRR5063143_naive_H3K27ac_treat.bam *(Performed here!!)*  <br />
+- Extra files: SRR5063144_naive_H3K27ac_treat.bam; SRR5063149_naive_H3K4me3_treat.bam; SRR5063150_naive_H3K4me3_treat.bam; SRR5063153_naive_input_treat.bam; SRR5063154_naive_input_treat.bam *(available !!)*  <br />
+- Histone modification" *H3K27ac:* broad peaks; *H3K4me3* narrow peaks. <br />   
 
 
 
