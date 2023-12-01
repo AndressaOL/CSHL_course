@@ -55,12 +55,12 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
   22 &nbsp; 10511600 &nbsp; 10511650 &nbsp; N &nbsp; 60 &nbsp; + <br /> 
 
   ### 2.3) Pos-mapping data 
-*2.3.1)* Convert bed to bam ~2 sec
-`bedtools bedtobam  -i  SRR5063143_naive_H3K27ac_chromap.bed  -g net/hawkins/vol1/home/aolima/CSHL_Course/genome/chrom22.sizes > SRR5063143_naive_H3K27ac_chromap.bam`
+*2.3.1)* Convert bed to bam ~2 sec <br /> 
+`bedtools bedtobam  -i  SRR5063143_naive_H3K27ac_chromap.bed  -g net/hawkins/vol1/home/aolima/CSHL_Course/genome/chrom22.sizes > SRR5063143_naive_H3K27ac_chromap.bam` <br /> 
 &#x1F538; *-g flag*: it is the sizes of each chromossome
 
 &#x1F539; **Extra**
-`samtools faidx genome.fa <br />
+`samtools faidx genome.fa <br /> <br /> 
 cut -f1,2 genome.fa.fai > sizes.genome <br />` 
 
 
