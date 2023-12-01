@@ -78,7 +78,9 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 `samtools index ${sorted.bam.file}`  <br />
 `samtools idxstats ${sorted.bam.file} | cut -f1 | grep -v Mt | xargs samtools view -b ${sorted.bam.file}  > ${sorted-noMT.bam.file}  <br />
  &#x1F538; Mt depend the reference genome *(check the reference and annotation genome)*; idxstats index create. <br />
-
+ 
+#### 3) Peak Calling 
+**MACS2** the Model-based Analysis of ChIP-Seq (MACS) for chormatin data analysis https://pypi.org/project/MACS2/ <br />
   
 
 
