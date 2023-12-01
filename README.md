@@ -59,19 +59,25 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 `bedtools bedtobam  -i  SRR5063143_naive_H3K27ac_chromap.bed  -g net/hawkins/vol1/home/aolima/CSHL_Course/genome/chrom22.sizes > SRR5063143_naive_H3K27ac_chromap.bam` <br /> 
 &#x1F538; *-g flag*: it is the sizes of each chromossome
 
-&#x1F539; **Extra**
+&#x1F539; **Extra** save the size for each chromossome  <br />
+- **MUST!!** use the same version of reference genome use on the analysis <br />
 `samtools faidx genome.fa <br /> <br /> `
 `cut -f1,2 genome.fa.fai > sizes.genome <br />` 
 
 **check files**: Output file (*BAM format*) <br /> 
 `samtools view SRR5063143_naive_H3K27ac_chromap.bam | head -n 5` 
 
-*2.3.2)* Sorted .**bam** & index generation **.bai** & convert to ***.bw** (*BigWig*) *xsec*
-`samtools sort SRR5063143_naive_H3K27ac_chromap.bam  -o SRR5063143_naive_H3K27ac_treat.bam` <br />
-`samtools index SRR5063143_naive_H3K27ac_treat.bam` <br />
-`bamCoverage -p max -b SRR5063143_naive_H3K27ac_treat.bam  --normalizeUsing RPKM  -v  -o SRR5063143_naive_H3K27ac_norm.bw` <br />
+*2.3.2)* Sort .**bam** & index generation **.bai** & convert to ***.bw** (*BigWig*) *xsec*  <br />
+*a.)* `samtools sort SRR5063143_naive_H3K27ac_chromap.bam  -o SRR5063143_naive_H3K27ac_treat.bam` <br />
+*b.)* `samtools index SRR5063143_naive_H3K27ac_treat.bam` <br />
+*c.)* `bamCoverage -p max -b SRR5063143_naive_H3K27ac_treat.bam  --normalizeUsing RPKM  -v  -o SRR5063143_naive_H3K27ac_norm.bw` <br />
+&#x1F538; *a.)* sort the bam files; *b.)* create a index; *c.)* convert the bam to bw & normalize data RPKM (deeptools) <br />
 
-
+&#x1F539; **Extra** Remove the Chrm MT <br />
+- Chromosome MT (Mitocondrial) can cause noise in the *calling peaks* should be remove from the *.bam files  <br />
+`samtools index ${sorted.bam.file}`  <br />
+`samtools idxstats ${sorted.bam.file} | cut -f1 | grep -v Mt | xargs samtools view -b ${sorted.bam.file}  > ${sorted-noMT.bam.file}  <br />
+ &#x1F538; Mt depend the reference genome *(check the reference and annotation genome)*; idxstats index create. <br />
 
   
 
