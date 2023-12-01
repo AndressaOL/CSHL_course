@@ -46,14 +46,26 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 **-o**: output file
 *--trim-adapters(not used)*
 
-**check files**: &#x1F534 Output file (*BED format*)
+**check files**: Output file (*BED format*)
 ` head SRR5063143_naive_H3K27ac_chromap.bed`
 
+ &#x1F539; chrm; start; end; N; q; strand. <br />  
   22 &nbsp; 10510250 &nbsp; 10510300 &nbsp; N &nbsp; 59 &nbsp; + <br /> 
   22 &nbsp; 10510252 &nbsp; 10510302 &nbsp; N &nbsp; 46 &nbsp; - <br /> 
   22 &nbsp; 10511600 &nbsp; 10511650 &nbsp; N &nbsp; 60 &nbsp; + <br /> 
-- 
-- chrm; start; end; N; q; strand. 
+
+  ### 2.3) Pos-mapping data 
+*2.3.1)* Convert bed to bam ~2 sec
+`bedtools bedtobam  -i  SRR5063143_naive_H3K27ac_chromap.bed  -g net/hawkins/vol1/home/aolima/CSHL_Course/genome/chrom22.sizes > SRR5063143_naive_H3K27ac_chromap.bam`
+&#x1F538; *-g flag*: it is the sizes of each chromossome
+
+&#x1F539; **Extra**
+`samtools faidx genome.fa <br />
+cut -f1,2 genome.fa.fai > sizes.genome <br />` 
+
+
+  
+
 
 
 
