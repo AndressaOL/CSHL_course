@@ -21,6 +21,17 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 ### 2) Processing data & Genome Mapping
 **Chromap** for aligning and preprocessing high throughput chromatin profiles (*ATAC-seq & ChIP-seq*); **1)** Trimm the low-quality reads and adaptors; **2)** Remove duplicated reads; **3)** Perform the mapping. https://github.com/haowenz/chromap
 
+- Build the indexed genome (available !!!) ~ 1 min
+` chromap -i -r genome.fa -o index`
+- Flags:
+**-i**: indexing genome flag 
+**-r**: reference genome
+**-o**: output name 
+
+
+
+
+  
 
 
 
