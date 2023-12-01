@@ -28,9 +28,12 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 **-r**: reference genome
 **-o**: output name
 
-## Only using the chromosome 22 human genome (only because it is one of the smallest!!)
+### 2.1) Reference Genome
 - Genome assembly: GRCh38.p14 <br />
-- Chromosome 22 info : https://useast.ensembl.org/Homo_sapiens/Location/Chromosome?r=22 <br /> 
+&#x1F538; **Only the chromosome 22 human genome** (*only because it is one of the smallest!!*)
+- Chromosome 22 info : https://useast.ensembl.org/Homo_sapiens/Location/Chromosome?r=22 <br />
+
+### 2.1) Processing & mapping data    
 
 
 
