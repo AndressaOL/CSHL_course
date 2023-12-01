@@ -106,7 +106,7 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 To check the output narrowPeaks file uses: `wc-l` to count the number of peaks and `head` & `ls -ll` to check the output file <br /> 
 
 *3.2.2)* H3K27ac *(Broad Peaks)* <br /> 
--macs2 callpeak  -t  SRR5063143_naive_H3K27ac_treat.bam -c SRR5063153_naive_input_treat.bam -f BAM  -g hs -n H3K27ac --broad --outdir ${your_path_directory} 2> H3K27ac_broad_macs2.log <br /> 
+`macs2 callpeak  -t  SRR5063143_naive_H3K27ac_treat.bam -c SRR5063153_naive_input_treat.bam -f BAM  -g hs -n H3K27ac --broad --outdir ${your_path_directory} 2> H3K27ac_broad_macs2.log` <br /> 
 
 
 
