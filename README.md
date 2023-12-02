@@ -66,9 +66,6 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 `samtools faidx genome.fa` <br /> <br /> 
 `cut -f1,2 genome.fa.fai > sizes.genome` <br /> 
 
-**check files**: Output file (*BAM format*) <br /> 
-`samtools view SRR5063143_naive_H3K27ac_chromap.bam | head -n 5` <br />
-
 *2.3.2)* Sort .**bam** & index generation **.bai** & convert to ***.bw** (*BigWig*) *xsec*  <br />
 *a.)* `samtools sort SRR5063143_naive_H3K27ac_chromap.bam  -o SRR5063143_naive_H3K27ac_treat.bam` <br />
 *b.)* `samtools index SRR5063143_naive_H3K27ac_treat.bam` <br />
@@ -80,6 +77,9 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 `samtools index ${sorted.bam.file}`  <br />
 `samtools idxstats ${sorted.bam.file} | cut -f1 | grep -v Mt | xargs samtools view -b ${sorted.bam.file}  > ${sorted-noMT.bam.file}  <br />
  &#x1F538; Mt depend the reference genome *(check the reference and annotation genome)*; idxstats index create. <br />
+
+ **check files**: Output file (*BAM format*) <br /> 
+`samtools view SRR5063143_naive_H3K27ac_chromap.bam | head -n 5` <br />
 
  &#x1F539; Check the biwig files in the genome browser  <br />
 - Use the IGV app: https://igv.org/app/  <br />
