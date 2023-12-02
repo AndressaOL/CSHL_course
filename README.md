@@ -101,7 +101,7 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 *3.2)* MACS2 *~2 min* <br />  
 
 *3.2.1)* H3K4me3 *(Narrow Peaks)*  <br />  
-`macs2 callpeak  -t  SRR5063149_naive_H3K4me3_treat.bam -c SRR5063154_naive_input_treat.bam -f BAM  -g hs   -n H3K4me3 --outdir ${your_path_directory}  2> H3K4me3_macs2.log` <br />  
+`macs2 callpeak  -t  SRR5063149_naive_H3K4me3_treat.bam -c SRR5063154_naive_input_treat.bam -f BAM  -g hs  --nomodel --shift -100 --extsize 200 -n H3K4me3 --outdir ${your_path_directory}  2> H3K4me3_macs2.log` <br />  
 &#x1F538; *flags*: -g:*effective genome size (hs)* <br />  
 
 &#x1F538; MACS2 has effective human genome size, non-model genome uses the effective genome size <br />  
@@ -114,7 +114,7 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 To check the output narrowPeaks file uses: `wc-l` to count the number of peaks and `head` & `ls -ll` to check the output file <br /> 
 
 *3.2.2)* H3K27ac *(Broad Peaks)* <br /> 
-`macs2 callpeak  -t  SRR5063143_naive_H3K27ac_treat.bam -c SRR5063153_naive_input_treat.bam -f BAM  -g hs -n H3K27ac --broad --outdir ${your_path_directory} 2> H3K27ac_broad_macs2.log` <br /> 
+`macs2 callpeak  -t  SRR5063143_naive_H3K27ac_treat.bam -c SRR5063153_naive_input_treat.bam -f BAM  -g hs -n H3K27ac  --nomodel --shift -100 --extsize 200 --broad --outdir ${your_path_directory} 2> H3K27ac_broad_macs2.log` <br /> 
 
 
 
