@@ -5,6 +5,22 @@ Welcome! This is the material and tutorials for the Chromatin Workshop.
 The database adopted in this course is under the reference: "Enhancer Chromatin and 3D Genome Architecture Changes from Naive to Primed Human Embryonic Stem Cell States".
 https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 
+## Tools and Packages Required: <br />
+- deepTools:https://deeptools.readthedocs.io/en/develop  <br />
+
+# Install deepTools <br />
+*1)* Install miniconda in your home directory <br />
+**1.1)** wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh *remember to change the permissions* <br />
+  **1.2)** bash Miniconda3-latest-Linux-x86_64.sh *install miniconda* <br />
+  **1.3)** activate base: source /grid/genomicscourse/home/oliveira/miniconda3/bin/activate *check if is installed conda list* <br />
+
+  *2)* Install deepTools <br />
+  **1.1)** conda create --name deeptools *create a new environment <br />
+  conda install -c bioconda deeptools <br /> 
+
+
+
+
 ## Data info:
 - **Cell Type**: Naïve cells
 - **Histone modification**: H3K4me3: *Promoters* & H3K27ac: *Promoters and Enhancers*
