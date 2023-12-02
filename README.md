@@ -83,6 +83,7 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 `cut -f1,2 genome.fa.fai > sizes.genome` <br /> 
 
 *2.3.2)* Sort .**bam** & index generation **.bai** & convert to ***.bw** (*BigWig*) *xsec*  <br />
+*x)* ` samtools index  SRR5063143_naive_H3K27ac_chromap.bam  <br />
 *a.)* `samtools sort SRR5063143_naive_H3K27ac_chromap.bam  -o SRR5063143_naive_H3K27ac_treat.bam` <br />
 *b.)* `samtools index SRR5063143_naive_H3K27ac_treat.bam` <br />
 *c.)* `bamCoverage -p max -b SRR5063143_naive_H3K27ac_treat.bam  --normalizeUsing RPKM  -v  -o SRR5063143_naive_H3K27ac_norm.bw` <br />
