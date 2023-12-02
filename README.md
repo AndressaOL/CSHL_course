@@ -80,6 +80,14 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 `samtools index ${sorted.bam.file}`  <br />
 `samtools idxstats ${sorted.bam.file} | cut -f1 | grep -v Mt | xargs samtools view -b ${sorted.bam.file}  > ${sorted-noMT.bam.file}  <br />
  &#x1F538; Mt depend the reference genome *(check the reference and annotation genome)*; idxstats index create. <br />
+
+ &#x1F539; Check the biwig files in the genome browser  <br />
+- Use the IGV app: https://igv.org/app/  <br />
+- Select the hg38 genome and select the chromosome 22 *(chr22)* <br />
+- upload the *.bw files from the HPC to your personal PC *can use SCP or STFP*  <br />
+- upload the *.bw in the *track* function  <br />
+- Let's have fun!! check the **FBXO7** gene  <br />
+  &#x1F539; https://useast.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000100225;r=22:32474676-32498829
  
 #### 3) Peak Calling 
 **MACS2** the Model-based Analysis of ChIP-Seq (MACS) for chormatin data analysis https://pypi.org/project/MACS2/ <br />
