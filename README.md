@@ -9,6 +9,7 @@ The database adopted in this course is under the reference: "Enhancer Chromatin 
 - **Library info**: **1)** SE-fastq files; **2)** 3 M reads
 - **Data File**: Total 6 files (2 for each histone modification & 2 input files)
 ##
+
 ## Tools and Packages Required: <br />
 - deepTools:https://deeptools.readthedocs.io/en/develop  <br />
 - Samtools: https://www.htslib.org/  <br />
@@ -18,23 +19,22 @@ The database adopted in this course is under the reference: "Enhancer Chromatin 
 - GREAT: http://great.stanford.edu/public/html/  <br />
 - SRplot: https://www.bioinformatics.com.cn/en  <br />
 
-# Install deepTools <br />
-*1)* Install miniconda in your home directory <br />
-**1.1)** wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh *remember to change the permissions* <br />
-- https://docs.conda.io/projects/miniconda/en/latest/
-  **1.2)** bash Miniconda3-latest-Linux-x86_64.sh *install miniconda* <br />
-  **1.3)** activate base: source /grid/genomicscourse/home/oliveira/miniconda3/bin/activate *check if is installed conda list* <br />
-
-  *2)* Install deepTools <br />
-  **1.1)** conda create --name deeptools *create a new environment <br />
-  conda install -c bioconda deeptools <br /> 
-
-
+## Install deepTools <br />
+**1)** Install miniconda in your home directory <br />
+*1.1)* `wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh` *remember to change the permissions* <br />
+&#x1F538; check here for others versions: https://docs.conda.io/projects/miniconda/en/latest/ <br />
+  *1.2)* `bash Miniconda3-latest-Linux-x86_64.sh` *install miniconda* <br />
+  *1.3)* activate base: `source /grid/genomicscourse/home/oliveira/miniconda3/bin/activate` *check if is installed conda list* <br />
+ **2)** Install deepTools <br />
+  *2.1)* `conda create --name deeptools` *create a new environment <br />
+   *2.2)* `conda install -c bioconda deeptools` <br /> 
+##
 
 
 
 
-  ##include the sample info
+
+
 
 ### 1) Quality Control of Sequencing using FastQC/MultiQC
 - **Documentation**: *FastQC*: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/ & *MultiQC*: https://multiqc.info/
