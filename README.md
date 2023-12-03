@@ -85,16 +85,18 @@ cut -f1,2 genome.fa.fai > sizes.genome
 ``` 
 
 2.3.2) Sort .**bam** & index generation **.bai** & convert to ***.bw** (*BigWig*) *xsec*  <br />
-*a.)* ` samtools index  SRR5063143_naive_H3K27ac_chromap.bam  <br />
+*a.)* ` samtools index  SRR5063143_naive_H3K27ac_chromap.bam`  <br />
 *b.)* `samtools sort SRR5063143_naive_H3K27ac_chromap.bam  -o SRR5063143_naive_H3K27ac_treat.bam` <br />
 *c.)* `samtools index SRR5063143_naive_H3K27ac_treat.bam` <br />
 *d.)* `bamCoverage -p max -b SRR5063143_naive_H3K27ac_treat.bam  --normalizeUsing RPKM  -v  -o SRR5063143_naive_H3K27ac_norm.bw` <br />
-- *a.)* sort the bam files; *b.)* create a index; *c.)* convert the bam to bw & normalize data RPKM (deeptools) <br />
+- *a.)* sort the bam files; *b.)* create a index; *c.)* convert bam to bw & normalize data RPKM (deeptools) <br />
 
 - **Extra** Remove the Chrm MT <br />
 - Chromosome MT (Mitocondrial) can cause noise in the *calling peaks* should be remove from the *.bam files  <br />
-`samtools index ${sorted.bam.file}`  <br />
-`samtools idxstats ${sorted.bam.file} | cut -f1 | grep -v Mt | xargs samtools view -b ${sorted.bam.file}  > ${sorted-noMT.bam.file}  <br />
+```
+samtools index ${sorted.bam.file} 
+samtools idxstats ${sorted.bam.file} | cut -f1 | grep -v Mt | xargs samtools view -b ${sorted.bam.file}  > ${sorted-noMT.bam.file}
+```
  &#x1F538; Mt depend the reference genome *(check the reference and annotation genome)*; idxstats index create. <br />
 
  **check files**: Output file (*BAM format*) <br /> 
