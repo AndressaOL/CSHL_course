@@ -26,17 +26,10 @@ The database adopted in this course is under the reference: "Enhancer Chromatin 
  1.2) `bash Miniconda3-latest-Linux-x86_64.sh` *install miniconda* <br />
  1.3) activate base: `source /grid/genomicscourse/home/oliveira/miniconda3/bin/activate` *check if is installed conda list* <br />
  **2)** Install deepTools <br />
-  2.1) `conda create --name deeptools` *create a new environment* <br />
-  2.2) `conda install -c bioconda deeptools` <br /> 
-##
-
-
-
-
-
-
-
-### 1) Quality Control of Sequencing using FastQC/MultiQC
+ 2.1) `conda create --name deeptools` *create a new environment* <br />
+ 2.2) `conda install -c bioconda deeptools` <br /> 
+ 
+## 1) Quality Control of Sequencing using FastQC/MultiQC
 - **Documentation**: *FastQC*: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/ & *MultiQC*: https://multiqc.info/
 - FastQC: ~3 -4 min <br /> 
 `fastqc *.fastq`
