@@ -137,8 +137,10 @@ bash FRiP_score.sh  SRR5063143_naive_H3K27ac_treat.bam  H3K27ac_peaks.broadPeak
 bash FRiP_score.sh SRR5063149_naive_H3K4me3_treat.bam H3K4me3_peaks.narrowPeak
 ``` 
 
-## Let's visualize our results with Plots
-**1)** Correlation plots and Heatmap. Correlation matrix bewteen the replicates (*QC analysis*) and Heatmap (*visualize the signal intensity:Input; HK3me4;HK27ac*) 
+## Let's visualize our results with Plots and perform enrichment analysis
+**1)** deeptools:Correlation and Heatmap plots. Correlation matrix bewteen the replicates (*QC analysis*) and Heatmap (*visualize the signal intensity:Input; HK3me4;HK27ac*) 
+**2)** SRplot: Ven diagram with the peaks regions
+**3)** GREAT: To perform enrichment analysis in the peaks regions.
 
 
 
