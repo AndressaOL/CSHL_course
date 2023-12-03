@@ -92,7 +92,7 @@ cut -f1,2 genome.fa.fai > sizes.genome
 - *a.)* sort the bam files; *b.)* create a index; *c.)* convert bam to bw & normalize data RPKM (deeptools) <br />
 
 - **Extra** Remove the Chrm MT <br />
-- Chromosome MT (Mitocondrial) can cause noise in the *calling peaks* should be remove from the *.bam files  <br />
+Chromosome MT (Mitocondrial) can cause noise in the *calling peaks* should be remove from the *.bam files  <br />
 ```
 samtools index ${sorted.bam.file} 
 samtools idxstats ${sorted.bam.file} | cut -f1 | grep -v Mt | xargs samtools view -b ${sorted.bam.file}  > ${sorted-noMT.bam.file}
