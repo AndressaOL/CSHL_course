@@ -81,8 +81,8 @@ The database adopted in this course is under the reference: "Enhancer Chromatin 
 samtools faidx genome.fa 
 cut -f1,2 genome.fa.fai > sizes.genome
 ``` 
-2.3.2) Sort .**bam** & index generation **.bai** & convert to ***.bw** (*Big*Wig*) *xsec*  <br />
-*a.)* ` samtools index  SRR5063143_naive_H3K27ac_chromap.bam`  <br />
+2.3.2) Sort .**bam** & index generation **.bai** & convert to ***.bw** (*Big*Wig*) *~3min*  <br />
+*a.)* `samtools index  SRR5063143_naive_H3K27ac_chromap.bam`  <br />
 *b.)* `samtools sort SRR5063143_naive_H3K27ac_chromap.bam  -o SRR5063143_naive_H3K27ac_treat.bam` <br />
 *c.)* `samtools index SRR5063143_naive_H3K27ac_treat.bam` <br />
 *d.)* `bamCoverage -p max -b SRR5063143_naive_H3K27ac_treat.bam  --normalizeUsing RPKM  -v  -o SRR5063143_naive_H3K27ac_norm.bw` **a.)** sort the bam files; **b.)** create a index; **c.)** convert bam to bw & normalize data RPKM (deeptools) <br />
@@ -115,18 +115,17 @@ samtools idxstats ${sorted.bam.file} | cut -f1 | grep -v Mt | xargs samtools vie
 
 **3.2)** MACS2 *~2 min* <br />  
 
-*3.2.1)* H3K4me3 *(Narrow Peaks)*  <br />  
+3.2.1) H3K4me3 *(Narrow Peaks)*  <br />  
 `macs2 callpeak  -t  SRR5063149_naive_H3K4me3_treat.bam -c SRR5063154_naive_input_treat.bam -f BAM  -g hs  --nomodel --shift -100 --extsize 200 -n H3K4me3 --outdir ${your_path_directory}  2> H3K4me3_macs2.log` **flag**: -g:*effective genome size (hs)* <br />  
 &#x1F538; MACS2 has effective human genome size, non-model genome uses the effective genome size <br />  
 - *hs*:2.7e9
 - *mm*:1.87e9
 - *ce*:9e7
 - *dm*:1.2e8
-
 **check files**: MACS2 generates several outputs; only check *.log and *.narrowPeaks <br />  
 To check the output narrowPeaks file uses: `wc-l` to count the number of peaks and `head` & `ls -ll` to check the output file <br /> 
 
-*3.2.2)* H3K27ac *(Broad Peaks)* <br /> 
+3.2.2) H3K27ac *(Broad Peaks)* <br /> 
 `macs2 callpeak  -t  SRR5063143_naive_H3K27ac_treat.bam -c SRR5063153_naive_input_treat.bam -f BAM  -g hs -n H3K27ac  --nomodel --shift -100 --extsize 200 --broad --outdir ${your_path_directory} 2> H3K27ac_broad_macs2.log` <br /> 
 
 
