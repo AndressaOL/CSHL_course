@@ -128,8 +128,15 @@ To check the output narrowPeaks file uses: `wc-l` to count the number of peaks a
 3.2.2) H3K27ac *(Broad Peaks)* <br /> 
 `macs2 callpeak  -t  SRR5063143_naive_H3K27ac_treat.bam -c SRR5063153_naive_input_treat.bam -f BAM  -g hs -n H3K27ac  --nomodel  --broad --outdir ${your_path_directory} 2> H3K27ac_broad_macs2.log` <br /> 
 
-##QC Analysis 
-**Fraction of reads in peaks (FRiP):** FRiP Score essential to evaluate the Peaks Quality.*more details:* https://yiweiniu.github.io/blog/2019/03/Calculate-FRiP-score/ <br />
+##QC Analysis *~ 3 min* 
+**Fraction of reads in peaks (FRiP):** FRiP Score essential to evaluate the Peaks Quality. *more details:* https://yiweiniu.github.io/blog/2019/03/Calculate-FRiP-score/ <br />
+- Request data: *.bam files & *Peaks files (Narrow or broad)
+- To calcualte the FRiPs run the script *(Pipelines folder)*
+```
+bash FRiP_score.sh  SRR5063143_naive_H3K27ac_treat.bam  H3K27ac_peaks.broadPeak
+bash FRiP_score.sh SRR5063149_naive_H3K4me3_treat.bam H3K4me3_peaks.narrowPeak
+``` 
+
 
 
 
