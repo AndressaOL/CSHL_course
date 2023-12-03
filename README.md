@@ -11,6 +11,7 @@ https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
 # Install deepTools <br />
 *1)* Install miniconda in your home directory <br />
 **1.1)** wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh *remember to change the permissions* <br />
+- https://docs.conda.io/projects/miniconda/en/latest/
   **1.2)** bash Miniconda3-latest-Linux-x86_64.sh *install miniconda* <br />
   **1.3)** activate base: source /grid/genomicscourse/home/oliveira/miniconda3/bin/activate *check if is installed conda list* <br />
 
