@@ -66,14 +66,13 @@ The database adopted in this course is under the reference: "Enhancer Chromatin 
 
 **check files**: Output file (*BED format*) <br /> 
 `head SRR5063143_naive_H3K27ac_chromap.bed` <br />
-
- &#x1F539; chrm; start; end; N; q; strand. <br />  
+&#x1F539; chrm; start; end; N; q; strand. <br />  
   22 &nbsp; 10510250 &nbsp; 10510300 &nbsp; N &nbsp; 59 &nbsp; + <br /> 
   22 &nbsp; 10510252 &nbsp; 10510302 &nbsp; N &nbsp; 46 &nbsp; - <br /> 
   22 &nbsp; 10511600 &nbsp; 10511650 &nbsp; N &nbsp; 60 &nbsp; + <br /> 
 
   ### 2.3) Pos-mapping data 
-*2.3.1)* Convert bed to bam *~2sec* <br /> 
+2.3.1) Convert bed to bam *~2sec* <br /> 
 `bedtools bedtobam  -i  SRR5063143_naive_H3K27ac_chromap.bed  -g net/hawkins/vol1/home/aolima/CSHL_Course/genome/chrom22.sizes > SRR5063143_naive_H3K27ac_chromap.bam` <br /> 
 &#x1F538; *-g flag*: it is the sizes of each chromossome <br />
 
@@ -82,7 +81,7 @@ The database adopted in this course is under the reference: "Enhancer Chromatin 
 `samtools faidx genome.fa` <br /> <br /> 
 `cut -f1,2 genome.fa.fai > sizes.genome` <br /> 
 
-*2.3.2)* Sort .**bam** & index generation **.bai** & convert to ***.bw** (*BigWig*) *xsec*  <br />
+2.3.2) Sort .**bam** & index generation **.bai** & convert to ***.bw** (*BigWig*) *xsec*  <br />
 *x)* ` samtools index  SRR5063143_naive_H3K27ac_chromap.bam  <br />
 *a.)* `samtools sort SRR5063143_naive_H3K27ac_chromap.bam  -o SRR5063143_naive_H3K27ac_treat.bam` <br />
 *b.)* `samtools index SRR5063143_naive_H3K27ac_treat.bam` <br />
