@@ -74,7 +74,7 @@ The database adopted in this course is under the reference: "Enhancer Chromatin 
   ### 2.3) Pos-mapping data 
 2.3.1) Convert bed to bam *~2sec* <br /> 
 `bedtools bedtobam  -i  SRR5063143_naive_H3K27ac_chromap.bed  -g net/hawkins/vol1/home/aolima/CSHL_Course/genome/chrom22.sizes > SRR5063143_naive_H3K27ac_chromap.bam` <br /> 
-&#x1F538; *-g flag*: it is the sizes of each chromossome <br />
+- *-g flag*: it is the sizes of each chromossome <br />
 
 &#x1F539; **Extra** save the size for each chromossome  <br />
 - **MUST!!** use the same version of reference genome use on the analysis <br />
