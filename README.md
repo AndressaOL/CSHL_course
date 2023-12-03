@@ -1,12 +1,17 @@
-# CSHL_course
+# Chromatin Workshop  12/4/2023
 
 ## CSHL Fall 2023 Computational Genomics Course
 Welcome! This is the material and tutorials for the Chromatin Workshop.
-The database adopted in this course is under the reference: "Enhancer Chromatin and 3D Genome Architecture Changes from Naive to Primed Human Embryonic Stem Cell States".
-https://www.sciencedirect.com/science/article/pii/S2213671119301262?via%3Dihub
+The database adopted in this course is under the reference: "Enhancer Chromatin and 3D Genome Architecture Changes from Naive to Primed Human Embryonic Stem Cell States". https://www.sciencedirect.com/science/article/pii/S2213671119301262?via%3Dihub
 
 ## Tools and Packages Required: <br />
 - deepTools:https://deeptools.readthedocs.io/en/develop  <br />
+- Samtools https://www.htslib.org/  <br />
+- Chromap https://github.com/haowenz/chromap <br />
+- bedtools https://bedtools.readthedocs.io/en/latest/  <br />
+- https://pypi.org/project/MACS2/  <br />
+- GREAT: http://great.stanford.edu/public/html/  <br />
+- SRplot: https://www.bioinformatics.com.cn/en  <br />
 
 # Install deepTools <br />
 *1)* Install miniconda in your home directory <br />
