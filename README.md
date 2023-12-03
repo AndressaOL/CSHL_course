@@ -87,8 +87,8 @@ cut -f1,2 genome.fa.fai > sizes.genome
 *c.)* `samtools index SRR5063143_naive_H3K27ac_treat.bam` <br />
 *d.)* `bamCoverage -p max -b SRR5063143_naive_H3K27ac_treat.bam  --normalizeUsing RPKM  -v  -o SRR5063143_naive_H3K27ac_norm.bw` **a.)** sort the bam files; **b.)** create a index; **c.)** convert bam to bw & normalize data RPKM (deeptools) <br />
 
-- **Extra** Remove the Chrm MT; &#x1F538; Mt depend the reference genome *(check the reference and annotation genome)*; idxstats index create. <br />
-Chromosome MT (Mitocondrial) can cause noise in the *calling peaks* should be remove from the *.bam files  <br />
+- **Extra** Remove the Chrm MT; &#x1F538; Mt depends the reference genome *(check the reference and annotation genome)*; idxstats: create the index. <br />
+Chromosome MT (Mitochondrial)) can cause noise in the *calling peaks* should be removed from the *.bam files  <br />
 ```
 samtools index ${sorted.bam.file} 
 samtools idxstats ${sorted.bam.file} | cut -f1 | grep -v Mt | xargs samtools view -b ${sorted.bam.file}  > ${sorted-noMT.bam.file}
@@ -104,9 +104,9 @@ samtools idxstats ${sorted.bam.file} | cut -f1 | grep -v Mt | xargs samtools vie
 - Let's have fun!! check the **FBXO7** gene  <br />
   *https://useast.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000100225;r=22:32474676-32498829
  
-#### 3) Peak Calling 
+## 3) Peak Calling 
 **MACS2** the Model-based Analysis of ChIP-Seq (MACS) for chormatin data analysis https://pypi.org/project/MACS2/ <br />
-&#x1F538; Useful to ChIP-seq; ATAC-seq; Cut&Tag. The parameters change depends the data type.  <br />
+Analysis for ChIP-seq; ATAC-seq; Cut&Tag. The parameters depend on the data type.  <br />
 
 *3.1)* **Samples info**:  <br />
 - SRR5063143_naive_H3K27ac_treat.bam *(Performed here!!)*  <br />
