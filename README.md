@@ -74,41 +74,35 @@ The database adopted in this course is under the reference: "Enhancer Chromatin 
 
 ### 2.3) Pos-mapping data 
 2.3.1) Convert bed to bam *~2sec* <br /> 
-`bedtools bedtobam  -i  SRR5063143_naive_H3K27ac_chromap.bed  -g net/hawkins/vol1/home/aolima/CSHL_Course/genome/chrom22.sizes > SRR5063143_naive_H3K27ac_chromap.bam` <br /> 
-**-g flag**: sizes for each chromossome <br />
+`bedtools bedtobam  -i  SRR5063143_naive_H3K27ac_chromap.bed  -g net/hawkins/vol1/home/aolima/CSHL_Course/genome/chrom22.sizes > SRR5063143_naive_H3K27ac_chromap.bam` **-g flag**: sizes for each chromossome; *Extra: save the size for each chromossome*  <br />
 
-&#x1F539; **Extra** save the size for each chromossome  <br />
-- **MUST!!** use the same version of reference genome use on the analysis <br />
+&#x1F538;**MUST!!** use the same version of reference genome use on the analysis <br />
 ```
 samtools faidx genome.fa 
 cut -f1,2 genome.fa.fai > sizes.genome
 ``` 
-
-2.3.2) Sort .**bam** & index generation **.bai** & convert to ***.bw** (*BigWig*) *xsec*  <br />
+2.3.2) Sort .**bam** & index generation **.bai** & convert to ***.bw** (*Big*Wig*) *xsec*  <br />
 *a.)* ` samtools index  SRR5063143_naive_H3K27ac_chromap.bam`  <br />
 *b.)* `samtools sort SRR5063143_naive_H3K27ac_chromap.bam  -o SRR5063143_naive_H3K27ac_treat.bam` <br />
 *c.)* `samtools index SRR5063143_naive_H3K27ac_treat.bam` <br />
-*d.)* `bamCoverage -p max -b SRR5063143_naive_H3K27ac_treat.bam  --normalizeUsing RPKM  -v  -o SRR5063143_naive_H3K27ac_norm.bw` <br />
-- *a.)* sort the bam files; *b.)* create a index; *c.)* convert bam to bw & normalize data RPKM (deeptools) <br />
+*d.)* `bamCoverage -p max -b SRR5063143_naive_H3K27ac_treat.bam  --normalizeUsing RPKM  -v  -o SRR5063143_naive_H3K27ac_norm.bw` **a.)** sort the bam files; **b.)** create a index; **c.)** convert bam to bw & normalize data RPKM (deeptools) <br />
 
-- **Extra** Remove the Chrm MT <br />
+- **Extra** Remove the Chrm MT; &#x1F538; Mt depend the reference genome *(check the reference and annotation genome)*; idxstats index create. <br />
 Chromosome MT (Mitocondrial) can cause noise in the *calling peaks* should be remove from the *.bam files  <br />
 ```
 samtools index ${sorted.bam.file} 
 samtools idxstats ${sorted.bam.file} | cut -f1 | grep -v Mt | xargs samtools view -b ${sorted.bam.file}  > ${sorted-noMT.bam.file}
 ```
- &#x1F538; Mt depend the reference genome *(check the reference and annotation genome)*; idxstats index create. <br />
 
- **check files**: Output file (*BAM format*) <br /> 
+ **check files**: Output file (*BAM format*); 
+ - *Check the biwig files in the genome browser*  <br />
 `samtools view SRR5063143_naive_H3K27ac_chromap.bam | head -n 5` <br />
-
- &#x1F539; Check the biwig files in the genome browser  <br />
 - Use the IGV app: https://igv.org/app/  <br />
 - Select the hg38 genome and select the chromosome 22 *(chr22)* <br />
 - upload the *.bw files from the HPC to your personal PC *can use SCP or STFP*  <br />
 - upload the *.bw in the *track* function  <br />
 - Let's have fun!! check the **FBXO7** gene  <br />
-  &#x1F539; https://useast.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000100225;r=22:32474676-32498829
+  *https://useast.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000100225;r=22:32474676-32498829
  
 #### 3) Peak Calling 
 **MACS2** the Model-based Analysis of ChIP-Seq (MACS) for chormatin data analysis https://pypi.org/project/MACS2/ <br />
