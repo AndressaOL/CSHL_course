@@ -65,30 +65,33 @@ The database adopted in this course is under the reference: "Enhancer Chromatin 
 *--trim-adapters(not used)*
 
 **check files**: Output file (*BED format*) <br /> 
-`head SRR5063143_naive_H3K27ac_chromap.bed` <br />
-&#x1F539; chrm; start; end; N; q; strand. <br />  
-  22 &nbsp; 10510250 &nbsp; 10510300 &nbsp; N &nbsp; 59 &nbsp; + <br /> 
-  22 &nbsp; 10510252 &nbsp; 10510302 &nbsp; N &nbsp; 46 &nbsp; - <br /> 
-  22 &nbsp; 10511600 &nbsp; 10511650 &nbsp; N &nbsp; 60 &nbsp; + <br /> 
 
-  ### 2.3) Pos-mapping data 
+`head SRR5063143_naive_H3K27ac_chromap.bed` <br />
+- **chrm; start; end; N; q; strand**. <br />
+22 &nbsp; 10510250 &nbsp; 10510300 &nbsp; N &nbsp; 59 &nbsp; + <br /> 
+22 &nbsp; 10510252 &nbsp; 10510302 &nbsp; N &nbsp; 46 &nbsp; - <br /> 
+22 &nbsp; 10511600 &nbsp; 10511650 &nbsp; N &nbsp; 60 &nbsp; + <br /> 
+
+### 2.3) Pos-mapping data 
 2.3.1) Convert bed to bam *~2sec* <br /> 
 `bedtools bedtobam  -i  SRR5063143_naive_H3K27ac_chromap.bed  -g net/hawkins/vol1/home/aolima/CSHL_Course/genome/chrom22.sizes > SRR5063143_naive_H3K27ac_chromap.bam` <br /> 
-- *-g flag*: it is the sizes of each chromossome <br />
+**-g flag**: sizes for each chromossome <br />
 
 &#x1F539; **Extra** save the size for each chromossome  <br />
 - **MUST!!** use the same version of reference genome use on the analysis <br />
-`samtools faidx genome.fa` <br /> <br /> 
-`cut -f1,2 genome.fa.fai > sizes.genome` <br /> 
+```
+samtools faidx genome.fa 
+cut -f1,2 genome.fa.fai > sizes.genome
+``` 
 
 2.3.2) Sort .**bam** & index generation **.bai** & convert to ***.bw** (*BigWig*) *xsec*  <br />
-*x)* ` samtools index  SRR5063143_naive_H3K27ac_chromap.bam  <br />
-*a.)* `samtools sort SRR5063143_naive_H3K27ac_chromap.bam  -o SRR5063143_naive_H3K27ac_treat.bam` <br />
-*b.)* `samtools index SRR5063143_naive_H3K27ac_treat.bam` <br />
-*c.)* `bamCoverage -p max -b SRR5063143_naive_H3K27ac_treat.bam  --normalizeUsing RPKM  -v  -o SRR5063143_naive_H3K27ac_norm.bw` <br />
-&#x1F538; *a.)* sort the bam files; *b.)* create a index; *c.)* convert the bam to bw & normalize data RPKM (deeptools) <br />
+*a.)* ` samtools index  SRR5063143_naive_H3K27ac_chromap.bam  <br />
+*b.)* `samtools sort SRR5063143_naive_H3K27ac_chromap.bam  -o SRR5063143_naive_H3K27ac_treat.bam` <br />
+*c.)* `samtools index SRR5063143_naive_H3K27ac_treat.bam` <br />
+*d.)* `bamCoverage -p max -b SRR5063143_naive_H3K27ac_treat.bam  --normalizeUsing RPKM  -v  -o SRR5063143_naive_H3K27ac_norm.bw` <br />
+- *a.)* sort the bam files; *b.)* create a index; *c.)* convert the bam to bw & normalize data RPKM (deeptools) <br />
 
-&#x1F539; **Extra** Remove the Chrm MT <br />
+- **Extra** Remove the Chrm MT <br />
 - Chromosome MT (Mitocondrial) can cause noise in the *calling peaks* should be remove from the *.bam files  <br />
 `samtools index ${sorted.bam.file}`  <br />
 `samtools idxstats ${sorted.bam.file} | cut -f1 | grep -v Mt | xargs samtools view -b ${sorted.bam.file}  > ${sorted-noMT.bam.file}  <br />
