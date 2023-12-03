@@ -106,19 +106,17 @@ samtools idxstats ${sorted.bam.file} | cut -f1 | grep -v Mt | xargs samtools vie
  
 ## 3) Peak Calling 
 **MACS2** the Model-based Analysis of ChIP-Seq (MACS) for chormatin data analysis https://pypi.org/project/MACS2/ <br />
-Analysis for ChIP-seq; ATAC-seq; Cut&Tag. The parameters depend on the data type.  <br />
+**Analysis for ChIP-seq; ATAC-seq; Cut&Tag**. *The parameters depend on the data type.*  <br />
 
-*3.1)* **Samples info**:  <br />
+**3.1)** Samples info:  <br />
 - SRR5063143_naive_H3K27ac_treat.bam *(Performed here!!)*  <br />
 - Extra files: SRR5063144_naive_H3K27ac_treat.bam; SRR5063149_naive_H3K4me3_treat.bam; SRR5063150_naive_H3K4me3_treat.bam; SRR5063153_naive_input_treat.bam; SRR5063154_naive_input_treat.bam *(available !!)*  <br />
 - Histone modification" *H3K27ac:* broad peaks; *H3K4me3* narrow peaks. <br />   
 
-*3.2)* MACS2 *~2 min* <br />  
+**3.2)** MACS2 *~2 min* <br />  
 
 *3.2.1)* H3K4me3 *(Narrow Peaks)*  <br />  
-`macs2 callpeak  -t  SRR5063149_naive_H3K4me3_treat.bam -c SRR5063154_naive_input_treat.bam -f BAM  -g hs  --nomodel --shift -100 --extsize 200 -n H3K4me3 --outdir ${your_path_directory}  2> H3K4me3_macs2.log` <br />  
-&#x1F538; *flags*: -g:*effective genome size (hs)* <br />  
-
+`macs2 callpeak  -t  SRR5063149_naive_H3K4me3_treat.bam -c SRR5063154_naive_input_treat.bam -f BAM  -g hs  --nomodel --shift -100 --extsize 200 -n H3K4me3 --outdir ${your_path_directory}  2> H3K4me3_macs2.log` **flag**: -g:*effective genome size (hs)* <br />  
 &#x1F538; MACS2 has effective human genome size, non-model genome uses the effective genome size <br />  
 - *hs*:2.7e9
 - *mm*:1.87e9
