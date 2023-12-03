@@ -3,7 +3,7 @@
 ## CSHL Fall 2023 Computational Genomics Course
 Welcome! This is the material and tutorials for the Chromatin Workshop.
 The database adopted in this course is under the reference: "Enhancer Chromatin and 3D Genome Architecture Changes from Naive to Primed Human Embryonic Stem Cell States".
-https://www.cell.com/stem-cell-reports/pdfExtended/S2213-6711(19)30126
+https://www.sciencedirect.com/science/article/pii/S2213671119301262?via%3Dihub
 
 ## Tools and Packages Required: <br />
 - deepTools:https://deeptools.readthedocs.io/en/develop  <br />
