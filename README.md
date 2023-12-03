@@ -21,13 +21,13 @@ The database adopted in this course is under the reference: "Enhancer Chromatin 
 
 ## Install deepTools <br />
 **1)** Install miniconda in your home directory <br />
-*1.1)* `wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh` *remember to change the permissions* <br />
+1.1) `wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh` *remember to change the permissions* <br />
 &#x1F538; check here for others versions: https://docs.conda.io/projects/miniconda/en/latest/ <br />
-  *1.2)* `bash Miniconda3-latest-Linux-x86_64.sh` *install miniconda* <br />
-  *1.3)* activate base: `source /grid/genomicscourse/home/oliveira/miniconda3/bin/activate` *check if is installed conda list* <br />
+ 1.2) `bash Miniconda3-latest-Linux-x86_64.sh` *install miniconda* <br />
+ 1.3) activate base: `source /grid/genomicscourse/home/oliveira/miniconda3/bin/activate` *check if is installed conda list* <br />
  **2)** Install deepTools <br />
-  *2.1)* `conda create --name deeptools` *create a new environment <br />
-   *2.2)* `conda install -c bioconda deeptools` <br /> 
+  2.1) `conda create --name deeptools` *create a new environment* <br />
+  2.2) `conda install -c bioconda deeptools` <br /> 
 ##
 
 
