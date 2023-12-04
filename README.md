@@ -53,6 +53,7 @@ The database adopted in this course is under the reference: "Enhancer Chromatin 
 
 ### 2.2) Processing & mapping data 
 - Chromap: *~35 sec* <br />
+Chromap performing the remove duplicates, adapters and alignment using high throughput chromatin profiles.
 `chromap --preset chip -x index_chrm22 -r Homo_sapiens.GRCh38.dna.chromosome.22.fa -q 20 --min-read-length 10   -1 SRR5063143_naive_H3K27ac_PE.fastq  -o  SRR5063143_naive_H3K27ac_chromap.bed` <br />
 - Flags:
 **--preset chip**:Mapping chip reads
@@ -72,9 +73,9 @@ The database adopted in this course is under the reference: "Enhancer Chromatin 
 22 &nbsp; 10510252 &nbsp; 10510302 &nbsp; N &nbsp; 46 &nbsp; - <br /> 
 22 &nbsp; 10511600 &nbsp; 10511650 &nbsp; N &nbsp; 60 &nbsp; + <br /> 
 
-### 2.3) Pos-mapping data 
+### 2.3) Post-mapping data 
 2.3.1) Convert bed to bam *~2sec* <br /> 
-`bedtools bedtobam  -i  SRR5063143_naive_H3K27ac_chromap.bed  -g net/hawkins/vol1/home/aolima/CSHL_Course/genome/chrom22.sizes > SRR5063143_naive_H3K27ac_chromap.bam` **-g flag**: sizes for each chromossome; *Extra: save the size for each chromossome*  <br />
+`bedtools bedtobam  -i  SRR5063143_naive_H3K27ac_chromap.bed  -g net/hawkins/vol1/home/aolima/CSHL_Course/genome/chrom22.sizes > SRR5063143_naive_H3K27ac_chromap.bam` **-g flag**: sizes for each chromosome; *Extra: save the size for each chromosome*  <br />
 
 &#x1F538;**MUST!!** use the same version of reference genome use on the analysis <br />
 ```
