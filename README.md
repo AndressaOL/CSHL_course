@@ -77,7 +77,7 @@ Chromap performing the remove duplicates, adapters and alignment using high thro
 2.3.1) Convert bed to bam *~2sec* <br /> 
 `bedtools bedtobam  -i  SRR5063143_naive_H3K27ac_chromap.bed  -g net/hawkins/vol1/home/aolima/CSHL_Course/genome/chrom22.sizes > SRR5063143_naive_H3K27ac_chromap.bam` **-g flag**: sizes for each chromosome; *Extra: save the size for each chromosome*  <br />
 
-&#x1F538;**MUST!!** use the same version of reference genome use on the analysis <br />
+&#x1F538;**MUST!!** use the same version of reference genome use in the analysis <br />
 ```
 samtools faidx genome.fa 
 cut -f1,2 genome.fa.fai > sizes.genome
@@ -89,7 +89,7 @@ cut -f1,2 genome.fa.fai > sizes.genome
 *d.)* `bamCoverage -p max -b SRR5063143_naive_H3K27ac_treat.bam  --normalizeUsing RPKM  -v  -o SRR5063143_naive_H3K27ac_norm.bw` **a.)** sort the bam files; **b.)** create a index; **c.)** convert bam to bw & normalize data RPKM (deeptools) <br />
 
 - **Extra** Remove the Chrm MT; &#x1F538; Mt depends the reference genome *(check the reference and annotation genome)*; idxstats: create the index. <br />
-Chromosome MT (Mitochondrial)) can cause noise in the *calling peaks* should be removed from the *.bam files  <br />
+Chromosome MT (Mitochondrial)) can cause noise in the *calling peaks* should remove from the *.bam files  <br />
 ```
 samtools index ${sorted.bam.file} 
 samtools idxstats ${sorted.bam.file} | cut -f1 | grep -v Mt | xargs samtools view -b ${sorted.bam.file}  > ${sorted-noMT.bam.file}
