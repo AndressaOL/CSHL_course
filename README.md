@@ -28,7 +28,9 @@ The database adopted in this course is under the reference: "Enhancer Chromatin 
  **2)** Install deepTools <br />
  2.1) `conda create --name deeptools` *create a new environment* <br />
  2.2) `conda install -c bioconda deeptools` <br /> 
-2.3) `conda install -c bioconda multiqc`  <br />
+ **3)** Install MultiQC
+ 3.2) `conda create --name multiqc` *create a new environment* <br />
+ 3.1) `conda install -c bioconda multiqc`  <br />
  
 ## 1) Quality Control of Sequencing using FastQC/MultiQC
 - **Documentation**: *FastQC*: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/ & *MultiQC*: https://multiqc.info/
