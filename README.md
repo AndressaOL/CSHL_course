@@ -3,11 +3,20 @@
 ## CSHL Fall 2023 Computational Genomics Course
 Welcome! This is the material and tutorials for the Chromatin Workshop.
 The database adopted in this course is under the reference: "Enhancer Chromatin and 3D Genome Architecture Changes from Naive to Primed Human Embryonic Stem Cell States". https://www.sciencedirect.com/science/article/pii/S2213671119301262?via%3Dihub
-**Data info:**
-- **Cell Type**: Naïve cells
-- **Histone modification**: H3K4me3: *Promoters* & H3K27ac: *Promoters and Enhancers*
-- **Library info**: **1)** SE-fastq files; **2)** 3 M reads
-- **Data File**: Total 6 files (2 for each histone modification & 2 input files)
+
+## Guidelines:
+1) QC Analysis & mapping data <br />
+2) Pos-mapping data <br />
+3) data visualization (IGV) <br />
+4) Calling Peaks <br />
+5) QC Peaks (FRiP Scores) <br />
+6) Results Interpretation <br />
+
+**Data info:** <br />
+- **Cell Type**: Naïve cells <br />
+- **Histone modification**: H3K4me3: *Promoters* & H3K27ac: *Promoters and Enhancers* <br />
+- **Library info**: **1)** SE-fastq files; **2)** 3 M reads <br />
+- **Data File**: Total 6 files (2 for each histone modification & 2 input files) <br />
 ##
 
 ## Tools and Packages Required: <br />
@@ -107,6 +116,7 @@ samtools idxstats ${sorted.bam.file} | cut -f1 | grep -v Mt | xargs samtools vie
 - upload the *.bw in the *track* function  <br />
 - Let's have fun!! check the **FBXO7** gene  <br />
   *https://useast.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000100225;r=22:32474676-32498829
+  *chr22:32474676-32498829   <br />
  
 ## 3) Peak Calling 
 **MACS2** the Model-based Analysis of ChIP-Seq (MACS) for chormatin data analysis https://pypi.org/project/MACS2/ <br />
