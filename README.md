@@ -37,7 +37,7 @@ The database adopted in this course is under the reference: "Enhancer Chromatin 
 `multiqc *.zip`
 
 ### 2) Processing data & Genome Mapping
-**Chromap** for aligning and preprocessing high throughput chromatin profiles (*ATAC-seq & ChIP-seq*); **1)** Trimm the low-quality reads and adaptors; **2)** Remove duplicated reads; **3)** Perform the mapping. https://github.com/haowenz/chromap <br />
+**Chromap** for aligning and preprocessing high throughput chromatin profiles (*ATAC-seq & ChIP-seq*); **1)** Trim the low-quality reads and adapters; **2)** Remove duplicated reads; **3)** Perform the mapping. https://github.com/haowenz/chromap <br />
 
 - Build the indexed genome *(available!!)* ~ 1 min
 ` chromap -i -r genome.fa -o index`
@@ -60,7 +60,7 @@ The database adopted in this course is under the reference: "Enhancer Chromatin 
 **-r**:reference genome 
 **-q**:Min MAPQ (*Quality*)
 **--min-read-length**:min length read
-**-1**:Single-end (*if use paired-end also included -2*) 
+**-1**:Single-end (*include -2,implies they need both -1 and -2*) 
 **-o**: output file
 *--trim-adapters(not used)*
 
