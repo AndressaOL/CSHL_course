@@ -88,15 +88,15 @@ cut -f1,2 genome.fa.fai > sizes.genome
 *c.)* `samtools index SRR5063143_naive_H3K27ac_treat.bam` <br />
 *d.)* `bamCoverage -p max -b SRR5063143_naive_H3K27ac_treat.bam  --normalizeUsing RPKM  -v  -o SRR5063143_naive_H3K27ac_norm.bw` **a.)** sort the bam files; **b.)** create a index; **c.)** convert bam to bw & normalize data RPKM (deeptools) <br />
 
-- **Extra** Remove the Chrm MT; &#x1F538; Mt depends the reference genome *(check the reference and annotation genome)*; idxstats: create the index. <br />
-Chromosome MT (Mitochondrial)) can cause noise in the *calling peaks* should remove from the *.bam files  <br />
+- **Extra** Remove the Chrm MT; &#x1F538; Should read the Mt in the reference genome *(check the reference and annotation genome)*; idxstats: create the index. <br />
+Chromosome MT (Mitochondrial) can cause noise in the *calling peaks* should remove from the *.bam files  <br />
 ```
 samtools index ${sorted.bam.file} 
 samtools idxstats ${sorted.bam.file} | cut -f1 | grep -v Mt | xargs samtools view -b ${sorted.bam.file}  > ${sorted-noMT.bam.file}
 ```
 
  **check files**: Output file (*BAM format*); 
- - *Check the biwig files in the genome browser*  <br />
+ - *Check the bigwig files in the genome browser*  <br />
 `samtools view SRR5063143_naive_H3K27ac_chromap.bam | head -n 5` <br />
 - Use the IGV app: https://igv.org/app/  <br />
 - Select the hg38 genome and select the chromosome 22 *(chr22)* <br />
@@ -122,7 +122,7 @@ samtools idxstats ${sorted.bam.file} | cut -f1 | grep -v Mt | xargs samtools vie
 - *hs*:2.7e9
 - *mm*:1.87e9
 - *ce*:9e7
-- *dm*:1.2e8
+- *dm*:1.2e8 <br />  
 **check files**: MACS2 generates several outputs; only check *.log and *.narrowPeaks <br />  
 To check the output narrowPeaks file uses: `wc-l` to count the number of peaks and `head` & `ls -ll` to check the output file <br /> 
 
@@ -132,7 +132,7 @@ To check the output narrowPeaks file uses: `wc-l` to count the number of peaks a
 ##QC Analysis *~ 3 min* 
 **Fraction of reads in peaks (FRiP):** FRiP Score essential to evaluate the Peaks Quality. *more details:* https://yiweiniu.github.io/blog/2019/03/Calculate-FRiP-score/ <br />
 - Request data: *.bam files & *Peaks files (Narrow or broad)
-- To calcualte the FRiPs run the script *(Pipelines folder)*
+- To calculate the FRiPs run the script *(Pipelines folder)*
 ```
 bash FRiP_score.sh  SRR5063143_naive_H3K27ac_treat.bam  H3K27ac_peaks.broadPeak
 bash FRiP_score.sh SRR5063149_naive_H3K4me3_treat.bam H3K4me3_peaks.narrowPeak
@@ -140,7 +140,7 @@ bash FRiP_score.sh SRR5063149_naive_H3K4me3_treat.bam H3K4me3_peaks.narrowPeak
 
 ## Let's visualize our results with Plots and perform enrichment analysis
 **1)** deeptools:Correlation and Heatmap plots. Correlation matrix bewteen the replicates (*QC analysis*) and Heatmap (*visualize the signal intensity:Input; HK3me4;HK27ac*)  *~ 20 min* <br /> 
-**2)** SRplot: Ven diagram with the peaks regions *Create a login and password*  <br /> 
+**2)** SRplot: Venn diagram with the peaks regions *Create a login and password*  <br /> 
 **3)** GREAT: To perform enrichment analysis in the peaks regions.  <br /> 
 ##
 
