@@ -1,0 +1,101 @@
+{
+	"version": "2.15.11",
+	"showSampleNames": false,
+	"reference": {
+		"id": "hg38",
+		"name": "Human (GRCh38/hg38)",
+		"fastaURL": "https://igv-genepattern-org.s3.amazonaws.com/genomes/seq/hg38/hg38.fa",
+		"indexURL": "https://igv-genepattern-org.s3.amazonaws.com/genomes/seq/hg38/hg38.fa.fai",
+		"cytobandURL": "https://s3.amazonaws.com/igv.org.genomes/hg38/annotations/cytoBandIdeo.txt.gz",
+		"aliasURL": "https://s3.amazonaws.com/igv.org.genomes/hg38/hg38_alias.tab",
+		"chromosomeOrder": "chr1, chr2, chr3, chr4, chr5, chr6, chr7, chr8, chr9, chr10, chr11, chr12, chr13, chr14, chr15, chr16, chr17, chr18, chr19, chr20, chr21, chr22, chrX, chrY"
+	},
+	"locus": "chr22:21,796,648-21,989,879",
+	"roi": [],
+	"tracks": [
+		{
+			"type": "sequence",
+			"order": -9007199254740991
+		},
+		{
+			"filename": "SRR5063149_naive_H3K4me3_norm.bw",
+			"name": "SRR5063149_naive_H3K4me3_norm.bw",
+			"format": "bigwig",
+			"type": "wig",
+			"order": 8
+		},
+		{
+			"filename": "H3K4me3_peaks.narrowPeak",
+			"name": "H3K4me3_peaks.narrowPeak",
+			"format": "narrowpeak",
+			"type": "annotation",
+			"height": 70,
+			"order": 9
+		},
+		{
+			"filename": "SRR5063143_naive_H3K27ac_norm.bw",
+			"name": "SRR5063143_naive_H3K27ac_norm.bw",
+			"format": "bigwig",
+			"type": "wig",
+			"order": 10
+		},
+		{
+			"filename": "H3K27ac_peaks.broadPeak",
+			"name": "H3K27ac_peaks.broadPeak",
+			"format": "broadpeak",
+			"type": "annotation",
+			"height": 70,
+			"order": 11
+		},
+		{
+			"name": "Homo sapiens 22Rv1 H3K27ac ",
+			"url": "https://www.encodeproject.org/files/ENCFF206KON/@@download/ENCFF206KON.bigWig",
+			"color": "rgb(200,0,0)",
+			"metadata": {
+				"Biosample": "Homo sapiens 22Rv1",
+				"AssayType": "ChIP-seq",
+				"Target": "H3K27ac ",
+				"BioRep": "2",
+				"TechRep": "2_1",
+				"OutputType": "signal p-value",
+				"Format": "bigWig",
+				"Lab": "Michael Snyder, Stanford",
+				"Accession": "ENCFF206KON",
+				"Experiment": "ENCSR391NPE"
+			},
+			"format": "bigwig",
+			"type": "wig",
+			"order": 12
+		},
+		{
+			"name": "Homo sapiens 22Rv1 CTCF ",
+			"url": "https://www.encodeproject.org/files/ENCFF539QXW/@@download/ENCFF539QXW.bigWig",
+			"metadata": {
+				"Biosample": "Homo sapiens 22Rv1",
+				"AssayType": "ChIP-seq",
+				"Target": "CTCF ",
+				"BioRep": "1,2",
+				"TechRep": "1_1,2_1",
+				"OutputType": "signal p-value",
+				"Format": "bigWig",
+				"Lab": "Michael Snyder, Stanford",
+				"Accession": "ENCFF539QXW",
+				"Experiment": "ENCSR857PBV"
+			},
+			"format": "bigwig",
+			"type": "wig",
+			"order": 13
+		},
+		{
+			"name": "Refseq Genes",
+			"format": "refgene",
+			"url": "https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/ncbiRefSeq.txt.gz",
+			"indexed": false,
+			"removable": false,
+			"order": 1000000,
+			"infoURL": "https://www.ncbi.nlm.nih.gov/gene/?term=$$",
+			"type": "annotation",
+			"height": 70
+		}
+	]
+}
