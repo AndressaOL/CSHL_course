@@ -12,7 +12,7 @@ The database adopted in this course is under the reference: "Enhancer Chromatin 
 5) QC Peaks (FRiP Scores) <br />
 6) Results Interpretation <br />
 
-**Data info:** <br />
+## Data info:
 - **Cell Type**: Naïve cells <br />
 - **Histone modification**: H3K4me3: *Promoters* & H3K27ac: *Promoters and Enhancers* <br />
 - **Library info**: **1)** SE-fastq files; **2)** 3 M reads <br />
