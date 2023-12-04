@@ -11,7 +11,7 @@ The database adopted in this course is under the reference: "Enhancer Chromatin 
 ##
 
 ## Tools and Packages Required: <br />
-- deepTools:https://deeptools.readthedocs.io/en/develop  <br />
+- deepTools: https://deeptools.readthedocs.io/en/develop  <br />
 - Samtools: https://www.htslib.org/  <br />
 - Chromap: https://github.com/haowenz/chromap <br />
 - bedtools: https://bedtools.readthedocs.io/en/latest/  <br />
