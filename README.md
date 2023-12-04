@@ -19,7 +19,7 @@ The database adopted in this course is under the reference: "Enhancer Chromatin 
 - GREAT: http://great.stanford.edu/public/html/  <br />
 - SRplot: https://www.bioinformatics.com.cn/en  <br />
 
-## Install deepTools <br />
+## Install deepTools & MultiQC <br />
 **1)** Install miniconda in your home directory <br />
 1.1) `wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh` *remember to change the permissions* <br />
 &#x1F538; check here for others versions: https://docs.conda.io/projects/miniconda/en/latest/ <br />
@@ -28,6 +28,7 @@ The database adopted in this course is under the reference: "Enhancer Chromatin 
  **2)** Install deepTools <br />
  2.1) `conda create --name deeptools` *create a new environment* <br />
  2.2) `conda install -c bioconda deeptools` <br /> 
+2.3) `conda install -c bioconda multiqc`  <br />
  
 ## 1) Quality Control of Sequencing using FastQC/MultiQC
 - **Documentation**: *FastQC*: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/ & *MultiQC*: https://multiqc.info/
