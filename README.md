@@ -28,7 +28,7 @@ The database adopted in this course is under the reference: "Enhancer Chromatin 
  **2)** Install deepTools <br />
  2.1) `conda create --name deeptools` *create a new environment* <br />
  2.2) `conda install -c bioconda deeptools` <br /> 
- **3)** Install MultiQC
+ **3)** Install MultiQC <br /> 
  3.2) `conda create --name multiqc` *create a new environment* <br />
  3.1) `conda install -c bioconda multiqc`  <br />
  
